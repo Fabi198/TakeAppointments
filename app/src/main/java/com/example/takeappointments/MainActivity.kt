@@ -4,14 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -25,14 +25,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TakeAppointmentsTheme {
-                Image(
-                    painter = painterResource(id = R.drawable.logo_full),
-                    contentDescription = "Example Image",
+                Box (
                     modifier = Modifier
-                        .size(200.dp, 40.dp)
-                        .padding(12.dp, 10.dp, 0.dp, 0.dp),
-                    contentScale = ContentScale.Fit
-                )
+                        .fillMaxWidth()
+                        .background(color = Color(R.color.black))
+                        .padding(12.dp, 12.dp),
+                    contentAlignment = Alignment.TopStart
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.logo_full),
+                        contentDescription = "Example Image",
+                        modifier = Modifier
+                            .size(200.dp, 40.dp)
+                            .align(Alignment.TopStart)
+                            .padding(12.dp, 0.dp, 0.dp, 0.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                }
             }
         }
     }
